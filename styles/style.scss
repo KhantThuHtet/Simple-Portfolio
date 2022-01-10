@@ -1,0 +1,92 @@
+@import './global';
+@import './variables';
+
+@mixin flex($justify, $align, $direction, $wrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-flow: $direction $wrap;
+}
+
+
+.gradient-background{
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.main-head{
+    min-height: 10vh;
+    @include flex(flex-start, center, row, wrap)
+}
+
+.nav-bar{
+    width: 60%;
+    margin-left: 50px;
+    font-size: $normal-fs;
+    color: $para-color;
+    @include flex(space-between, center, row, wrap);
+    .logo{
+        @include flex(flex-start, center, row, wrap);
+        font-weight: 500;
+        flex: 1 1 20rem;
+        img{
+            margin-right: 15px;
+        }
+    }
+    ul{
+        list-style: none;
+        font-size: $para-fs;
+        flex: 1 1 30rem;
+        @include flex(space-around, center, row, no-wrap);
+        li{
+            flex: 1 1 30rem;
+            padding:10px 0;
+            text-align: center;
+            border-radius: 6px;
+        }
+    }
+
+}
+
+.active{
+    background-color: #E0CA89;
+}
+
+.intro-sec{
+    height: 90vh;
+    margin: 0 50px;
+    @include flex(space-between, center, row, wrap)
+}
+
+.left-sec{
+    
+    color: $para-color;
+    @include flex(center, flex-start, column, wrap);
+    .intro-heading{
+        font-size: $display-fs;
+        margin-bottom: 2.4rem;
+        background: linear-gradient(86.86deg, #D1AC3D -18.57%, #857F70 106.59%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .intro-subhead{
+        font-size: $subheading-fs;
+        font-weight: 300;
+        margin-bottom: 2.4rem;
+    }
+    .intro-para{
+        font-size: $small-fs;
+        margin-bottom: 10rem;
+    }
+    .social-sec{
+        img{
+            width: 40px;
+            height: 5rem;
+            margin-right: 2.4rem;
+        }
+    }
+}
